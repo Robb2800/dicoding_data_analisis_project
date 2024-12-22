@@ -1,0 +1,9 @@
+pip
+pandas
+streamlit
+streamlit_folium
+numpy
+seaborn
+folium
+matplotlib
+Unidecode
