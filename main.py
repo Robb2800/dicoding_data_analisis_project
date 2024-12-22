@@ -7,6 +7,23 @@ from folium.plugins import HeatMap
 from streamlit_folium import st_folium
 import matplotlib.pyplot as plt
 import unidecode
+import requests
+import os
+
+
+file_links = [
+    "https://drive.google.com/uc?id=1xMxVMSDbTDCX2M_ds-RSgeGTo6vF9zlR",
+    "https://drive.google.com/uc?id=1mXtntj-lgnuoiygNtBT5nKH6tA5EZK9q",
+    "https://drive.google.com/uc?id=1_HQlq-6Y_PR6QF-ghhdk1zXLdsUoQOsS"
+]
+
+# Download and cache files
+@st.cache_data
+def fetch_file(url, file_name):
+    response = requests.get(url)
+    with open(file_name, "wb") as f:
+        f.write(response.content)
+    return file_name
 
 def load_df(filepath):
     df = pd.read_csv(filepath)
@@ -57,7 +74,14 @@ def main():
    st.subheader('Email: kevin.siswoyo28@gmail.com')
    st.subheader('ID Dicoding: kevinrob28')
 
-   
+   st.write("### Downloading and Preparing Data...")
+   local_files = []
+   for i, url in enumerate(file_links):
+        file_name = f"file_{i + 1}.csv"
+        st.write(f"Downloading: {file_name}")
+        local_file = fetch_file(url, file_name)
+        local_files.append(local_file)
+    
    st.text("")
    st.markdown("***")
 
