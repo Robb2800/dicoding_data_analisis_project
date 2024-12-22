@@ -1,1 +1,8 @@
+link to csv files for dashboard
+
+file_links = [
+    "https://drive.google.com/uc?id=1xMxVMSDbTDCX2M_ds-RSgeGTo6vF9zlR",
+    "https://drive.google.com/uc?id=1mXtntj-lgnuoiygNtBT5nKH6tA5EZK9q",
+    "https://drive.google.com/uc?id=1_HQlq-6Y_PR6QF-ghhdk1zXLdsUoQOsS"
+]
 
