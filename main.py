@@ -88,7 +88,7 @@ def main():
    
 # Customer Distribution
    st.write('## Customer and Seller Distribution')
-   cus_geo_df = load_df('./cus_geo_df.csv')
+   cus_geo_df = load_df(local_files[0])
    cust_geo_counts = customer_distribution(cus_geo_df)
   
    top_cities = cust_geo_counts.groupby(by='geolocation_city').sum().sort_values(by='customer_count', ascending=False).head(10).reset_index()
@@ -111,7 +111,7 @@ def main():
    
     
 # Seller Distribution
-   seller_geo_df = load_df('./seller_geo_df.csv')
+   seller_geo_df = load_df(local_files[1])
    seller_geo_counts = seller_distribution(seller_geo_df)
 
    top_cities = seller_geo_counts.groupby(by='geolocation_city').sum().sort_values(by='seller_count', ascending=False).head(10).reset_index()
@@ -136,7 +136,7 @@ def main():
 
 # Installment Analysis
    st.write('## Installment Analysis')
-   cust_orders_payments_merge = load_df('./cust_orders_payments_merge.csv')
+   cust_orders_payments_merge = load_df(local_files[2])
    city_analysis = installment_analysis(cust_orders_payments_merge)
    st.text('Top 10 Cities with High Installment Tendency (Weighted by Transactions)')
    top_cities_installments = city_analysis.sort_values(by='installment_tendency', ascending=False).head(10)
