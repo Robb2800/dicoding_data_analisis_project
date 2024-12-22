@@ -1,4 +1,4 @@
-pip
+
 pandas
 streamlit
 streamlit_folium
@@ -8,4 +8,4 @@ folium
 matplotlib
 Unidecode
 requests
-os
+
